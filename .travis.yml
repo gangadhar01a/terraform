@@ -20,7 +20,7 @@ before_script: echo $client_id
 script:
   
   - terraform version
-  - terraform plan -var subscription_id=$subscription_id -var client_id=$client_id  -var tenant_id=$tenant_id -var-file=inputs.tfvars
+  - terraform plan -var subscription_id=$subscription_id -var client_id=$client_id -var client_secret=$client_secret -var tenant_id=$tenant_id -var-file=inputs.tfvars
   - tflint packerimage.tf
 
 notifications:

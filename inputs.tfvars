@@ -1,6 +1,5 @@
 vnet = "NRHL-WestUS-1"
 subnet = "QA"
-client_secret="krIW9tRpLiJrZLSy6hyZqF5OoiRVq+2Hdzybihng80g="
 location = "West US"
 privateipaddress = ""
 VM_name = "terraform"
