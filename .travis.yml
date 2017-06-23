@@ -1,0 +1,27 @@
+language: bash
+sudo: required
+
+before_install:
+  - sudo curl -o  terraform.zip https://releases.hashicorp.com/terraform/0.9.8/terraform_0.9.8_linux_amd64.zip
+  - unzip terraform.zip
+  - mkdir ~/bin
+  - mv terraform ~/bin
+  - export PATH="~/bin:$PATH"
+
+install:
+  - sudo curl -sLo tflint.zip https://github.com/wata727/tflint/releases/download/v0.3.6/tflint_linux_amd64.zip
+  - unzip tflint.zip
+  - mkdir ~/tflint
+  - mv tflint ~/tflint
+  - export PATH="~/tflint:$PATH"
+
+before_script: echo $client_id
+
+script:
+  
+  - terraform version
+  - terraform plan -var-file=inputs.tfvars
+  - tflint packerimage.tf
+
+notifications:
+  email: false
